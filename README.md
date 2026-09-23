@@ -1,5 +1,7 @@
 # 💶 Maut & Grenzkosten-Preise – wie man Eigennutz auf das Optimum lenkt
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-maut-demo.streamlit.app/)**
+
 Drittes Stück der **Spieltheorie-&-Mechanism-Design-Linie** der "Konzepte"-Reihe im Portfolio von
 [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning. Nachfolger von
 [poa-braess-demo](https://sebastianhanisch-poa-braess-demo.streamlit.app/): dort ging es darum, wie schlecht das Gleichgewicht sein kann – hier darum,
