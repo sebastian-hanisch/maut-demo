@@ -88,7 +88,7 @@ def test_permalink_values_are_clamped_and_snapped():
     at.query_params["toll"] = "shortcut"
     at.run()
     _ok(at)
-    assert at.session_state["n_slider"] == C.N_MAX and at.session_state["lam_slider"] == C.LAM_MAX
+    assert at.session_state["n_slider"] == C.N_MAX and at.session_state["_kept_lam_slider"] == C.LAM_MAX      # lam ist im Modus "shortcut" ausgeblendet: der Wert liegt nur in KEPT
     assert abs(at.session_state["tau_slider"] - 0.35) < 1e-9 and at.session_state["mode_select"] == "shortcut"
 
 

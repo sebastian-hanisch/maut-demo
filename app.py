@@ -15,7 +15,7 @@ import streamlit as st
 import maut_constants as C
 import maut_network as N
 from maut_evaluation import Settings, analyse, gates_toll_experiment, gates_toll_search, lambda_experiment, shortcut_toll_experiment, winners_experiment
-from maut_presets import apply_preset, bounds, init_session_state_defaults, load_permalink_settings, randomize_seed, sync_query_params
+from maut_presets import apply_preset, bounds, init_session_state_defaults, load_permalink_settings, randomize_seed, sync_query_params, seed_widget
 from maut_visualization import build_gates_toll, build_network, build_search_pair, build_time_curve, build_toll_sweep, build_winners
 
 st.set_page_config(page_title="Maut & Grenzkosten-Preise – Sebastian Hanisch", layout="wide")
@@ -91,11 +91,13 @@ with st.sidebar:
                       help="Feste Fahrzeit der Abkürzung A→B. 0 = die Abkürzung ist kostenlos.")
     mode = st.selectbox("Maut", C.TOLL_MODES, key="mode_select", format_func=lambda k: C.TOLL_LABELS[k])
     if mode == "marginal":
+        seed_widget("lam_slider")
         lam = st.slider("Faktor auf die Grenzkosten-Maut", *bounds("lam_slider"), key="lam_slider", step=C.LAM_STEP, format="%.2f",
                         help="1 = genau die Mehrfahrzeit, die der Lkw den anderen aufbürdet. Darunter: zu niedrig, darüber: zu hoch.")
         tau = float(st.session_state.get("_kept_tau_slider", C.DEFAULT_TAU))
         st.session_state["_kept_lam_slider"] = lam
     elif mode == "shortcut":
+        seed_widget("tau_slider")
         tau = st.slider("Maut auf der Abkürzung τ / (b · n)", *bounds("tau_slider"), key="tau_slider", step=C.TAU_STEP, format="%.2f",
                         help="Feste Gebühr für jeden Lkw, der die Abkürzung nutzt, im Verhältnis zur Fahrzeit einer voll ausgelasteten lastabhängigen Kante.")
         lam = float(st.session_state.get("_kept_lam_slider", C.DEFAULT_LAM))
