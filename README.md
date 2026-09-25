@@ -57,7 +57,7 @@ ein Lkw $i$ am Tor $g$ zahlt $\lambda\, b_g\, w_i\,(n_g - 1)$.
 Nur **reine** Gleichgewichte. Bei Gleichstand bleibt ein Lkw, deshalb gibt es im Netz oft mehrere fast gleich gute Gleichgewichte. Die Suche nach schlechten Torwahl-Instanzen ist ein einfacher Hill Climber mit
 festem Seed; ein stärkerer Suchalgorithmus könnte höhere Werte finden.
 
-Verwandt: [poa-braess-demo](https://sebastianhanisch-poa-braess-demo.streamlit.app/) (Vorgänger), [nash-demo](https://sebastianhanisch-nash-demo.streamlit.app/) (Best-Response im Torwahl-Spiel),
+Verwandt: [frank-wolfe-demo](https://github.com/sebastian-hanisch/frank-wolfe-demo) (Netzwerkfluss-Linie: dieselbe Idee mit stetigem Verkehr auf einem Stadtgitter, Systemoptimum = Gleichgewicht auf Grenzkosten, Löser und Endspurt), [poa-braess-demo](https://sebastianhanisch-poa-braess-demo.streamlit.app/) (Vorgänger), [nash-demo](https://sebastianhanisch-nash-demo.streamlit.app/) (Best-Response im Torwahl-Spiel),
 [auction-demo](https://sebastianhanisch-auction-demo.streamlit.app/) (Zahlungsregeln in Auktionen, VCG).
 
 ## Tests
