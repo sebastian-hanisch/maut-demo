@@ -222,7 +222,7 @@ if st.session_state.get("winners_on"):
     st.warning(
         f"**Befund:** Die Grenzkosten-Maut {'stellt in jedem gerechneten Fall das Optimum her' if at_opt else 'verbessert das Gleichgewicht'}; die Fahrzeit sinkt für c von {de(min(faster), 2)} bis {de(max(faster), 2)} mal b·n. "
         f"Aber die Maut kostet: Fahrzeit plus gezahlte Maut liegt nur für {len(net_better)} der {len(rows_w)} gerechneten Umweg-Längen unter dem Wert ohne Maut"
-        f"{' (c = ' + ', '.join(de(x, 2) for x in net_better) + ' mal b·n)' if net_better else ''}. Überall sonst zahlen die Lkw mehr, als sie an Zeit sparen - solange die Einnahmen nicht zurückverteilt werden. "
+        f"{' (c = ' + ', '.join(de(x, 2) for x in net_better) + ' mal b·n)' if net_better else ''}. Überall sonst zahlen die Lkw mindestens so viel, wie sie an Zeit sparen - solange die Einnahmen nicht zurückverteilt werden. "
         "Bei sehr langen Umwegen ist die Abkürzung schon ohne Maut optimal, dort ist die Maut reine Umverteilung."
     )
 
@@ -286,7 +286,7 @@ st.markdown(
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
 | **Alle Lkw sind gleich groß und gleich zeitempfindlich** | Bei verschieden großen Lkw reicht die Grenzkosten-Maut nicht für das Optimum (Experiment oben). Verschieden zeitempfindliche Fahrer (Zeit ist ihnen verschieden viel wert) sind hier nicht abgebildet; dafür braucht es andere Maut-Konzepte. | - |
-| **Die Maut wird von der Zentrale gesetzt** | Wer die Maut kennt, muss die Kosten der anderen kennen: Last und Preise je Kante. Eine Behörde mit vollständiger Information ist eine Modellannahme. | Kostenteilung (Shapley) |
+| **Die Maut wird von der Zentrale gesetzt** | Wer die Maut setzt, muss die Kosten der anderen kennen: Last und Preise je Kante. Eine Behörde mit vollständiger Information ist eine Modellannahme. | Kostenteilung (Shapley) |
 | **Einnahmen sind ein Nullsummen-Transfer** | Ohne Rückverteilung verlieren die Lkw im Mittel; ob und wie zurückverteilt wird, ist eine politische, keine algorithmische Frage. | - |
 | **Jeder kennt Fahrzeiten und Maut und reagiert perfekt** | Ohne dieses Wissen bleibt nur Lernen aus der eigenen Erfahrung. | **No-Regret-Lernen** |
 | **Alle entscheiden gleichzeitig, keiner legt sich fest** | Ein Anführer, der sich zuerst festlegt, lenkt das Ergebnis auch ohne Maut. | **Stackelberg** |
@@ -325,6 +325,6 @@ Implementiert in `maut_network.py` (Netz, Maut, Gleichgewichte, Best-Response), 
 st.markdown("---")
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Spieltheorie: von Nash bis Myerson-Satterthwaite](https://sebastianhanisch.net/konzepte-spieltheorie.html)."
 )

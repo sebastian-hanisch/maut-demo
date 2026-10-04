@@ -38,7 +38,7 @@ ein Lkw $i$ am Tor $g$ zahlt $\lambda\, b_g\, w_i\,(n_g - 1)$.
 | Frage | Befund | Test |
 |---|---|---|
 | Stellt die Grenzkosten-Maut das Optimum her? | Im Braess-Netz ja, für jede der 36 gerechneten Umweg-Längen (20 Lkw, $c/(b\,n)$ von 0,25 bis 2,0): das schlechteste Gleichgewicht mit Maut ist ein Optimum. Standardfall (12 Lkw): 9,0 statt 12,0 min. Die Fahrzeit sinkt für $c/(b\,n)$ von 0,55 bis 1,90; bei sehr langen Umwegen ist die Abkürzung schon ohne Maut optimal. | `test_marginal_toll_reaches_the_optimum_for_every_umweg_time_but_seldom_pays_off`, `test_standardfall_numbers` |
-| Was kostet das die Lkw? | Fahrzeit plus gezahlte Maut liegt nur bei einer der 36 Umweg-Längen unter dem Wert ohne Maut ($c = b\,n$: 19,5 statt 20 min je Lkw). Sonst zahlen die Lkw mehr, als sie an Zeit sparen – solange die Einnahmen nicht zurückverteilt werden (Standardfall: 2,5 min Maut je Lkw; bei $c = 2\,b\,n$ ändert die Maut die Fahrzeit nicht und kostet 19 min je Lkw). | dito, `test_ohne_nutzen_numbers` |
+| Was kostet das die Lkw? | Fahrzeit plus gezahlte Maut liegt nur bei einer der 36 Umweg-Längen unter dem Wert ohne Maut ($c = b\,n$: 19,5 statt 20 min je Lkw). Sonst zahlen die Lkw mindestens so viel, wie sie an Zeit sparen (bei $c = 0{,}95\,b\,n$ genau so viel) – solange die Einnahmen nicht zurückverteilt werden (Standardfall: 2,5 min Maut je Lkw; bei $c = 2\,b\,n$ ändert die Maut die Fahrzeit nicht und kostet 19 min je Lkw). | dito, `test_ohne_nutzen_numbers` |
 | Wie hoch muss die Maut sein? | Der Faktor 1 reicht (15,0 statt 20,0 min bei 20 Lkw); der halbe Faktor lässt 3 % liegen. Ein zu hoher Faktor schadet der Fahrzeit hier nicht, kostet aber: 13,5 statt 4,5 min je Lkw beim Faktor 3. | `test_marginal_toll_level_sweep`, `test_zu_niedrig_numbers` |
 | Reicht eine feste Maut nur auf der Abkürzung? | Ja, ab $\tau = 0{,}5\,b\,n$ ist die Fahrzeit optimal – und dann nutzt niemand die Abkürzung, die Einnahmen sind null. Die höchsten Einnahmen (1,25 min je Lkw) gibt es bei $\tau = 0{,}25\,b\,n$, wo die Fahrzeit noch 8,3 % über dem Optimum liegt: die wirksamste Maut bringt kein Geld ein. Im Standardfall (12 Lkw, $\tau = 0{,}4\,b\,n$): 9,1 min bei 0,4 min Maut je Lkw. | `test_shortcut_toll_sweep_and_the_revenue_hump`, `test_feste_maut_numbers` |
 | Reicht die Grenzkosten-Maut im Torwahl-Spiel? | Bei einheitlichen Lkw-Größen ja: in allen 200 Instanzen ist jedes Gleichgewicht ein Optimum (ohne Maut: Preis der Anarchie im Mittel 1,027, Maximum 1,172). Bei gemischten Größen nur begrenzt: im Mittel 1,048 statt 1,059, Maximum 1,125 statt 1,177, und nur 3,5 % der Instanzen werden exakt optimal. Das Optimum ist zwar immer ein Gleichgewicht mit Maut, aber nicht das einzige – die Summe der Wartezeiten hat bei verschieden großen Lkw lokale Minima. | `test_uniform_sizes_toll_makes_every_equilibrium_optimal`, `test_mixed_sizes_toll_helps_only_a_little` |
@@ -97,3 +97,7 @@ streamlit run app.py
 ```
 
 Gebaut mit Streamlit, Plotly und numpy.
+
+---
+
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Spieltheorie: von Nash bis Myerson-Satterthwaite](https://sebastianhanisch.net/konzepte-spieltheorie.html).
